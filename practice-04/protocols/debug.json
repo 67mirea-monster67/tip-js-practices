@@ -1,0 +1,86 @@
+{
+  "captures": [
+    {
+      "draft": {
+        "id": "20",
+        "title": "  Изучить localStorage  ",
+        "priority": "high"
+      },
+      "checked": {
+        "ok": true,
+        "value": {
+          "id": 20,
+          "title": "Изучить localStorage",
+          "priority": "high"
+        }
+      },
+      "result": null
+    },
+    {
+      "draft": {
+        "id": "20",
+        "title": "  Изучить localStorage  ",
+        "priority": "high"
+      },
+      "checked": {
+        "ok": true,
+        "value": {
+          "id": 20,
+          "title": "Изучить localStorage",
+          "priority": "high"
+        }
+      },
+      "result": {
+        "ok": true,
+        "tasks": [
+          {
+            "id": 1,
+            "title": "Изучить функции",
+            "completed": true,
+            "priority": "medium"
+          },
+          {
+            "id": 4,
+            "title": "Подготовить модель задач",
+            "completed": false,
+            "priority": "high"
+          },
+          {
+            "id": 7,
+            "title": "Проверить методы массивов",
+            "completed": false,
+            "priority": "low"
+          },
+          {
+            "id": 10,
+            "title": "Оформить README",
+            "completed": true,
+            "priority": "medium"
+          },
+          {
+            "id": 20,
+            "title": "Изучить localStorage",
+            "completed": false,
+            "priority": "high"
+          }
+        ]
+      }
+    },
+    {
+      "draft": {
+        "id": "4",
+        "title": "Дубликат",
+        "priority": "medium"
+      },
+      "checked": {
+        "ok": false,
+        "errors": {
+          "id": "Этот id уже занят."
+        }
+      },
+      "result": null
+    }
+  ],
+  "json": "{\"version\":1,\"tasks\":[{\"id\":1,\"title\":\"Изучить функции\",\"completed\":true,\"priority\":\"medium\"},{\"id\":4,\"title\":\"Подготовить модель задач\",\"completed\":false,\"priority\":\"high\"},{\"id\":7,\"title\":\"Проверить методы массивов\",\"completed\":false,\"priority\":\"low\"},{\"id\":10,\"title\":\"Оформить README\",\"completed\":true,\"priority\":\"medium\"},{\"id\":20,\"title\":\"Изучить localStorage\",\"completed\":true,\"priority\":\"high\"}]}",
+  "keyboard": "Tab → title; Enter → создание; Space → toggle; Enter → edit/cancel; фокус возвращён в id"
+}

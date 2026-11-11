@@ -1,0 +1,70 @@
+[
+  {
+    "name": "API остановлен",
+    "expected": "error",
+    "actual": "error"
+  },
+  {
+    "name": "Повтор после запуска API",
+    "expected": "12",
+    "actual": "12"
+  },
+  {
+    "name": "Пустой запрос",
+    "expected": "0",
+    "actual": "0"
+  },
+  {
+    "name": "Невалидная форма без запроса",
+    "expected": 0,
+    "actual": 0
+  },
+  {
+    "name": "Создание и перезагрузка",
+    "expected": 1,
+    "actual": 1
+  },
+  {
+    "name": "Редактирование сохраняет completed",
+    "expected": true,
+    "actual": true
+  },
+  {
+    "name": "Отмена удаления",
+    "expected": 1,
+    "actual": 1
+  },
+  {
+    "name": "Быстрые фильтры с задержкой",
+    "expected": [
+      7,
+      22,
+      31
+    ],
+    "actual": [
+      7,
+      22,
+      31
+    ]
+  },
+  {
+    "name": "Вариант 1 исходное количество",
+    "expected": "8",
+    "actual": "8"
+  },
+  {
+    "name": "Вариант 1 завершённая задача исчезает",
+    "expected": 0,
+    "actual": 0
+  },
+  {
+    "name": "Reset восстанавливает вариант",
+    "expected": "7",
+    "actual": "7"
+  },
+  {
+    "name": "Перезапуск API удаляет созданную задачу",
+    "expected": 0,
+    "actual": 0
+  }
+]

@@ -1,0 +1,493 @@
+{
+  "timings": {
+    "sequential": [
+      230.2,
+      205.5,
+      204.7
+    ],
+    "parallel": [
+      106.4,
+      103.4,
+      104
+    ]
+  },
+  "errors": {
+    "http404": {
+      "kind": "http",
+      "status": 404,
+      "code": "TASK_NOT_FOUND",
+      "details": {
+        "id": 999
+      }
+    },
+    "http400": {
+      "kind": "http",
+      "status": 400,
+      "code": "INVALID_QUERY",
+      "details": null
+    },
+    "http503": {
+      "kind": "http",
+      "status": 503,
+      "code": "SERVICE_UNAVAILABLE",
+      "details": null
+    },
+    "invalidJSON": {
+      "kind": "invalid-response",
+      "status": null,
+      "code": null,
+      "details": null
+    },
+    "text": {
+      "kind": "invalid-response",
+      "status": null,
+      "code": null,
+      "details": null
+    },
+    "timeout": {
+      "kind": "timeout",
+      "status": null,
+      "code": null,
+      "details": null
+    },
+    "abort": {
+      "kind": "aborted"
+    },
+    "stopped": {
+      "kind": "network"
+    }
+  },
+  "headers": {
+    "status": 200,
+    "ok": true,
+    "contentType": "application/json; charset=utf-8",
+    "payload": {
+      "data": [
+        {
+          "id": 4,
+          "title": "Подготовить модель задач",
+          "completed": false,
+          "priority": "high",
+          "categoryId": 2
+        },
+        {
+          "id": 13,
+          "title": "Разобрать Promise",
+          "completed": false,
+          "priority": "high",
+          "categoryId": 1
+        },
+        {
+          "id": 34,
+          "title": "Провести рефакторинг клиента",
+          "completed": false,
+          "priority": "high",
+          "categoryId": 2
+        }
+      ],
+      "meta": {
+        "total": 3,
+        "filters": {
+          "completed": false,
+          "priority": "high",
+          "categoryId": null,
+          "q": ""
+        }
+      }
+    }
+  },
+  "variant5": {
+    "ids": [
+      4,
+      7,
+      13,
+      19,
+      22,
+      28,
+      34
+    ],
+    "total": 7
+  },
+  "allTasks": [
+    {
+      "id": 1,
+      "title": "Изучить функции",
+      "completed": true,
+      "priority": "medium",
+      "categoryId": 1
+    },
+    {
+      "id": 4,
+      "title": "Подготовить модель задач",
+      "completed": false,
+      "priority": "high",
+      "categoryId": 2
+    },
+    {
+      "id": 7,
+      "title": "Проверить методы массивов",
+      "completed": false,
+      "priority": "low",
+      "categoryId": 1
+    },
+    {
+      "id": 10,
+      "title": "Оформить README",
+      "completed": true,
+      "priority": "medium",
+      "categoryId": 3
+    },
+    {
+      "id": 13,
+      "title": "Разобрать Promise",
+      "completed": false,
+      "priority": "high",
+      "categoryId": 1
+    },
+    {
+      "id": 16,
+      "title": "Проверить учебный API",
+      "completed": true,
+      "priority": "high",
+      "categoryId": 2
+    },
+    {
+      "id": 19,
+      "title": "Описать контракт запросов",
+      "completed": false,
+      "priority": "medium",
+      "categoryId": 3
+    },
+    {
+      "id": 22,
+      "title": "Подготовить демонстрацию",
+      "completed": false,
+      "priority": "low",
+      "categoryId": 2
+    },
+    {
+      "id": 25,
+      "title": "Исправить обработку ошибок",
+      "completed": true,
+      "priority": "high",
+      "categoryId": 2
+    },
+    {
+      "id": 28,
+      "title": "Добавить фильтры API",
+      "completed": false,
+      "priority": "medium",
+      "categoryId": 2
+    },
+    {
+      "id": 31,
+      "title": "Сверить отчёт",
+      "completed": true,
+      "priority": "low",
+      "categoryId": 3
+    },
+    {
+      "id": 34,
+      "title": "Провести рефакторинг клиента",
+      "completed": false,
+      "priority": "high",
+      "categoryId": 2
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Учёба"
+    },
+    {
+      "id": 2,
+      "name": "Проект"
+    },
+    {
+      "id": 3,
+      "name": "Организация"
+    }
+  ],
+  "restarted": 12,
+  "broken": {
+    "ids": [
+      1,
+      4,
+      7,
+      10
+    ],
+    "warning": "Не удалось прочитать localStorage: Expected property name or '}' in JSON at position 1 (line 1 column 2)"
+  },
+  "experiments": {
+    "empty": {
+      "submits": 0,
+      "valid": false
+    },
+    "spaces": {
+      "submits": 1,
+      "valid": false,
+      "message": "Название не должно состоять только из пробелов."
+    },
+    "titleType": "string",
+    "storageType": "string",
+    "raw": "{\"title\":\"Нормальное название\",\"priority\":\"low\"}",
+    "parsed": {
+      "title": "Нормальное название",
+      "priority": "low"
+    }
+  },
+  "general4": [
+    {
+      "label": "reset",
+      "ids": [
+        1,
+        4,
+        7,
+        10
+      ],
+      "stats": {
+        "total": "4",
+        "completed": "2",
+        "pending": "2",
+        "progress": "50.0%",
+        "visible": "4"
+      },
+      "key": null
+    },
+    {
+      "label": "add20",
+      "ids": [
+        1,
+        4,
+        7,
+        10,
+        20
+      ],
+      "stats": {
+        "total": "5",
+        "completed": "2",
+        "pending": "3",
+        "progress": "40.0%",
+        "visible": "5"
+      },
+      "key": "{\"version\":1,\"tasks\":[{\"id\":1,\"title\":\"Изучить функции\",\"completed\":true,\"priority\":\"medium\"},{\"id\":4,\"title\":\"Подготовить модель задач\",\"completed\":false,\"priority\":\"high\"},{\"id\":7,\"title\":\"Проверить методы массивов\",\"completed\":false,\"priority\":\"low\"},{\"id\":10,\"title\":\"Оформить README\",\"completed\":true,\"priority\":\"medium\"},{\"id\":20,\"title\":\"Изучить localStorage\",\"completed\":false,\"priority\":\"high\"}]}"
+    },
+    {
+      "label": "duplicate4",
+      "ids": [
+        1,
+        4,
+        7,
+        10,
+        20
+      ],
+      "stats": {
+        "total": "5",
+        "completed": "2",
+        "pending": "3",
+        "progress": "40.0%",
+        "visible": "5"
+      },
+      "key": "{\"version\":1,\"tasks\":[{\"id\":1,\"title\":\"Изучить функции\",\"completed\":true,\"priority\":\"medium\"},{\"id\":4,\"title\":\"Подготовить модель задач\",\"completed\":false,\"priority\":\"high\"},{\"id\":7,\"title\":\"Проверить методы массивов\",\"completed\":false,\"priority\":\"low\"},{\"id\":10,\"title\":\"Оформить README\",\"completed\":true,\"priority\":\"medium\"},{\"id\":20,\"title\":\"Изучить localStorage\",\"completed\":false,\"priority\":\"high\"}]}"
+    },
+    {
+      "label": "edit4",
+      "ids": [
+        1,
+        4,
+        7,
+        10,
+        20
+      ],
+      "stats": {
+        "total": "5",
+        "completed": "2",
+        "pending": "3",
+        "progress": "40.0%",
+        "visible": "5"
+      },
+      "key": "{\"version\":1,\"tasks\":[{\"id\":1,\"title\":\"Изучить функции\",\"completed\":true,\"priority\":\"medium\"},{\"id\":4,\"title\":\"Подготовить форму задач\",\"completed\":false,\"priority\":\"low\"},{\"id\":7,\"title\":\"Проверить методы массивов\",\"completed\":false,\"priority\":\"low\"},{\"id\":10,\"title\":\"Оформить README\",\"completed\":true,\"priority\":\"medium\"},{\"id\":20,\"title\":\"Изучить localStorage\",\"completed\":false,\"priority\":\"high\"}]}"
+    },
+    {
+      "label": "toggle7",
+      "ids": [
+        1,
+        4,
+        7,
+        10,
+        20
+      ],
+      "stats": {
+        "total": "5",
+        "completed": "3",
+        "pending": "2",
+        "progress": "60.0%",
+        "visible": "5"
+      },
+      "key": "{\"version\":1,\"tasks\":[{\"id\":1,\"title\":\"Изучить функции\",\"completed\":true,\"priority\":\"medium\"},{\"id\":4,\"title\":\"Подготовить форму задач\",\"completed\":false,\"priority\":\"low\"},{\"id\":7,\"title\":\"Проверить методы массивов\",\"completed\":true,\"priority\":\"low\"},{\"id\":10,\"title\":\"Оформить README\",\"completed\":true,\"priority\":\"medium\"},{\"id\":20,\"title\":\"Изучить localStorage\",\"completed\":false,\"priority\":\"high\"}]}"
+    },
+    {
+      "label": "delete1",
+      "ids": [
+        4,
+        7,
+        10,
+        20
+      ],
+      "stats": {
+        "total": "4",
+        "completed": "2",
+        "pending": "2",
+        "progress": "50.0%",
+        "visible": "4"
+      },
+      "key": "{\"version\":1,\"tasks\":[{\"id\":4,\"title\":\"Подготовить форму задач\",\"completed\":false,\"priority\":\"low\"},{\"id\":7,\"title\":\"Проверить методы массивов\",\"completed\":true,\"priority\":\"low\"},{\"id\":10,\"title\":\"Оформить README\",\"completed\":true,\"priority\":\"medium\"},{\"id\":20,\"title\":\"Изучить localStorage\",\"completed\":false,\"priority\":\"high\"}]}"
+    },
+    {
+      "label": "reload",
+      "ids": [
+        4,
+        7,
+        10,
+        20
+      ],
+      "stats": {
+        "total": "4",
+        "completed": "2",
+        "pending": "2",
+        "progress": "50.0%",
+        "visible": "4"
+      },
+      "key": "{\"version\":1,\"tasks\":[{\"id\":4,\"title\":\"Подготовить форму задач\",\"completed\":false,\"priority\":\"low\"},{\"id\":7,\"title\":\"Проверить методы массивов\",\"completed\":true,\"priority\":\"low\"},{\"id\":10,\"title\":\"Оформить README\",\"completed\":true,\"priority\":\"medium\"},{\"id\":20,\"title\":\"Изучить localStorage\",\"completed\":false,\"priority\":\"high\"}]}"
+    },
+    {
+      "label": "resetAgain",
+      "ids": [
+        1,
+        4,
+        7,
+        10
+      ],
+      "stats": {
+        "total": "4",
+        "completed": "2",
+        "pending": "2",
+        "progress": "50.0%",
+        "visible": "4"
+      },
+      "key": null
+    }
+  ],
+  "variant4": [
+    {
+      "label": "initial",
+      "ids": [
+        11,
+        23,
+        37,
+        41,
+        58,
+        64
+      ],
+      "stats": {
+        "total": "6",
+        "completed": "0",
+        "pending": "6",
+        "progress": "0.0%",
+        "visible": "6"
+      }
+    },
+    {
+      "label": "add75",
+      "ids": [
+        11,
+        23,
+        37,
+        41,
+        58,
+        64,
+        75
+      ],
+      "stats": {
+        "total": "7",
+        "completed": "0",
+        "pending": "7",
+        "progress": "0.0%",
+        "visible": "7"
+      }
+    },
+    {
+      "label": "edit23",
+      "ids": [
+        11,
+        23,
+        37,
+        41,
+        58,
+        64,
+        75
+      ],
+      "stats": {
+        "total": "7",
+        "completed": "0",
+        "pending": "7",
+        "progress": "0.0%",
+        "visible": "7"
+      }
+    },
+    {
+      "label": "delete37",
+      "ids": [
+        11,
+        23,
+        41,
+        58,
+        64,
+        75
+      ],
+      "stats": {
+        "total": "6",
+        "completed": "0",
+        "pending": "6",
+        "progress": "0.0%",
+        "visible": "6"
+      }
+    },
+    {
+      "label": "reload",
+      "ids": [
+        11,
+        23,
+        41,
+        58,
+        64,
+        75
+      ],
+      "stats": {
+        "total": "6",
+        "completed": "0",
+        "pending": "6",
+        "progress": "0.0%",
+        "visible": "6"
+      }
+    },
+    {
+      "label": "reset",
+      "ids": [
+        11,
+        23,
+        37,
+        41,
+        58,
+        64
+      ],
+      "stats": {
+        "total": "6",
+        "completed": "0",
+        "pending": "6",
+        "progress": "0.0%",
+        "visible": "6"
+      }
+    }
+  ]
+}
