@@ -185,3 +185,15 @@ test('15. смена фильтра во время мутации не отме
   assert.deepEqual(api.reads.at(-1).filters, filters);
   await ready(api, view);
 });
+
+test('16. сохранённый обработчик после unmount не отправляет новую мутацию', async () => {
+  const api = fakeApi(), view = await mount(api);
+  await ready(api, view);
+  const save = view.current.saveTask;
+  const refresh = view.current.refresh;
+  await view.unmount();
+  assert.equal(await save(null, value), false);
+  refresh();
+  assert.equal(api.writes.length, 0);
+  assert.equal(api.reads.length, 1);
+});

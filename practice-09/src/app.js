@@ -24,4 +24,3 @@ export function createApp({ store = createStore(), control = false } = {}) {
   app.use(errorHandler);
   return app;
 }
-

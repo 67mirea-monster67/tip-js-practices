@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Проверка HTTP API ПР9</title>
+<style>
+body{font:17px 'Segoe UI',sans-serif;background:#f0f3f6;color:#142b3e;margin:30px auto;max-width:980px;padding:0 24px}h1{font-size:26px}label{display:block;margin:15px 0 5px}input,textarea,button{font:inherit;box-sizing:border-box;padding:10px;border:1px solid #b4c5d2;border-radius:5px}input,textarea{width:100%;background:white}button{background:#175477;color:white;margin:12px 8px 12px 0;cursor:pointer}.result{background:white;border:1px solid #cbd7df;padding:20px;border-radius:7px}.status{font-size:23px;font-weight:700;color:#176244}.status.error{color:#a42a2a}pre{font:15px/1.45 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}small{color:#526775}
+</style>
+<h1>Проверка HTTP API практической работы 9</h1>
+<p>Сидлецкий Павел · ЭФБО-06-25 · КР3</p>
+<label for="url">Адрес запроса</label><input id="url" value="http://localhost:5505/api/tasks?completed=true">
+<label for="body">Тело POST запроса</label><textarea id="body" rows="2">{"title":"   ","priority":"high","categoryId":2}</textarea>
+<button id="get">Выполнить GET</button><button id="post">Выполнить POST</button>
+<div class="result" aria-live="polite"><p id="request">Выберите запрос.</p><p id="status" class="status"></p><small id="headers"></small><pre id="response"></pre></div>
+<script type="module">
+const $=id=>document.getElementById(id);
+async function run(method){
+  $('request').textContent=method+' '+$('url').value;
+  $('status').textContent='Ожидание ответа…';
+  try{
+    const response=await fetch($('url').value, method==='POST'?{method,headers:{'Content-Type':'application/json'},body:$('body').value}:{});
+    const text=await response.text();
+    $('status').className='status'+(response.ok?'':' error');
+    $('status').textContent=response.status+' '+response.statusText;
+    $('headers').textContent='Content-Type: '+response.headers.get('content-type');
+    try{
+      const payload=JSON.parse(text);
+      $('response').textContent=Array.isArray(payload)
+        ? '[\n'+payload.map(task=>'  '+JSON.stringify(task)).join(',\n')+'\n]'
+        : JSON.stringify(payload,null,2);
+    }catch{$('response').textContent=text;}
+  }catch(error){$('status').textContent='Ошибка соединения';$('response').textContent=error.message;}
+}
+$('get').onclick=()=>run('GET');$('post').onclick=()=>run('POST');
+</script></html>

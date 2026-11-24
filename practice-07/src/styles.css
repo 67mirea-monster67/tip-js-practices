@@ -1,27 +1,40 @@
-:root { font-family: system-ui, sans-serif; color: #1e293b; background: #f1f5f9; }
+:root { font-family: 'Segoe UI', sans-serif; color: #182c3d; background: #eef3f5; font-synthesis: none; }
 * { box-sizing: border-box; }
 body { margin: 0; }
-main { max-width: 960px; margin: 0 auto; padding: 24px; }
-section { background: white; padding: 20px; border-radius: 12px; margin: 16px 0; }
-label { display: block; margin-top: 12px; }
-input, select, button { font: inherit; padding: 8px; }
-input, select { max-width: 100%; }
-button { cursor: pointer; margin: 6px 8px 6px 0; }
-:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
-ul { list-style: none; padding: 0; }
-li { border-bottom: 1px solid #cbd5e1; padding: 12px 0; overflow-wrap: anywhere; }
-.error, [role="alert"] { color: #b91c1c; }
-.actions { display: flex; flex-wrap: wrap; gap: 8px; }
-h1 { margin: 0; }
-h2 { margin: 0 0 10px; font-size: 1.2rem; }
-section { border: 1px solid #dbe3ef; }
-.stats, .filters { display: flex; flex-wrap: wrap; gap: 14px 24px; }
-.filters label { margin: 0; }
-.filters input, .filters select { display: block; margin-top: 4px; }
-button { background: #f8fafc; border: 1px solid #bacadd; border-radius: 7px; color: #233451; }
-button[aria-pressed="true"] { background: #174fbd; border-color: #174fbd; color: #fff; font-weight: 700; }
-input, select { border: 1px solid #bacadd; border-radius: 7px; background: #fff; }
-.task { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 5px 12px; }
-.task .actions { gap: 4px; }
-.task-meta { color: #475569; font-size: .94rem; }
-.done { color: #146648; font-weight: 650; }
+main { max-width: 1250px; padding: 28px; margin: auto; }
+header { margin-bottom: 22px; }
+h1 { font-size: 32px; margin: 4px 0 12px; }
+h2 { font-size: 20px; margin: 0 0 14px; }
+p { line-height: 1.5; }
+.eyebrow { color: #506878; font-size: 12px; letter-spacing: .12em; font-weight: 700; }
+section { background: #fff; padding: 22px; border: 1px solid #d9e2e8; border-radius: 10px; margin: 16px 0; }
+.stats { display: flex; gap: 60px; padding: 12px 22px; }
+.stats p { margin: 0; color: #526574; }
+.stats strong { display: inline-block; margin-left: 10px; color: #172f40; font-size: 23px; }
+.filter-fields { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 18px; }
+label { display: block; font-size: 14px; font-weight: 600; margin: 14px 0 6px; }
+.filter-fields label { margin: 0; }
+input, select, button { font: inherit; border-radius: 5px; border: 1px solid #bdcbd5; padding: 9px 11px; }
+input, select { display: block; width: 100%; margin-top: 6px; background: #fff; color: #182c3d; }
+button { cursor: pointer; color: #fff; background: #195675; border-color: #195675; }
+.secondary, .status-buttons button { background: #fff; color: #25475c; border-color: #b7cbd7; }
+.status-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 17px; }
+.status-buttons button[aria-pressed='true'] { background: #195675; color: #fff; border-color: #195675; box-shadow: 0 0 0 2px #dcecf4; }
+.workspace { display: grid; grid-template-columns: minmax(0,2fr) minmax(280px,1fr); gap: 20px; align-items: start; }
+.workspace section { margin-top: 0; }
+ul { list-style: none; margin: 0; padding: 0; }
+.task { padding: 17px 0; border-bottom: 1px solid #e1e8ed; overflow-wrap: anywhere; }
+.task:last-child { border-bottom: 0; padding-bottom: 0; }
+.task:first-child { padding-top: 0; }
+.task-heading { display: flex; gap: 12px; justify-content: space-between; align-items: start; }
+.badge, .count { background: #e8f3ed; color: #216243; padding: 3px 8px; border-radius: 4px; font-size: 12px; white-space: nowrap; }
+.count { margin-left: 6px; }
+.task-meta { font-size: 13px; color: #637887; margin: 8px 0; }
+.actions { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 15px; }
+.actions button { font-size: 13px; }
+.danger { color: #9c3131; background: #fff; border-color: #e3bebe; }
+[role='alert'] { color: #ad2525; font-size: 14px; }
+[aria-invalid='true'] { border-color: #ad2525; }
+:focus-visible { outline: 3px solid #418bb4; outline-offset: 3px; }
+button:disabled { opacity: .5; cursor: wait; }
+@media(max-width: 800px) { main { padding: 16px; } .workspace, .filter-fields { grid-template-columns: 1fr; } .stats { gap: 20px; flex-wrap: wrap; } }

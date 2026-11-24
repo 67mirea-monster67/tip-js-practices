@@ -1,7 +1,5 @@
 export default function TaskStats({ stats }) {
-  return <section aria-label="Статистика" className="stats">
-    <span>Всего <strong>{stats.total}</strong></span>
-    <span>Выполнено <strong>{stats.completed}</strong></span>
-    <span>В работе <strong>{stats.active}</strong></span>
+  return <section className="stats" aria-label="Статистика">
+    <p>Всего <strong>{stats.total}</strong></p><p>В работе <strong>{stats.active}</strong></p><p>Завершено <strong>{stats.completed}</strong></p>
   </section>;
 }

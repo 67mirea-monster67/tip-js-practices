@@ -7,16 +7,12 @@ export class ApiError extends Error {
     if (details !== undefined) this.details = details;
   }
 }
-
 export function errorHandler(error, req, res, next) {
   if (res.headersSent) return next(error);
-  if (error.type === 'entity.parse.failed') {
-    error = new ApiError(400, 'INVALID_JSON', 'Тело запроса должно содержать корректный JSON.');
-  } else if (error.type === 'entity.too.large') {
-    error = new ApiError(413, 'PAYLOAD_TOO_LARGE', 'Тело запроса слишком большое.');
-  }
   // Express декодирует :id до вызова маршрута.
   const invalidUri = error instanceof URIError;
+  if (error.type === 'entity.parse.failed') error = new ApiError(400, 'INVALID_JSON', 'Некорректный JSON.');
+  if (error.type === 'entity.too.large') error = new ApiError(413, 'BODY_TOO_LARGE', 'Тело запроса слишком большое.');
   const known = error instanceof ApiError;
   const status = invalidUri ? 400 : known ? error.status : 500;
   const payload = {
@@ -26,4 +22,3 @@ export function errorHandler(error, req, res, next) {
   if (known && error.details !== undefined) payload.details = error.details;
   res.status(status).json({ error: payload });
 }
-

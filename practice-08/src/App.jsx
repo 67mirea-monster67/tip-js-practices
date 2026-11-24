@@ -15,9 +15,7 @@ export default function App() {
   const { tasks, categories, meta } = data.snapshot;
   const { isLoading } = data;
   useEffect(() => {
-    if (new URLSearchParams(window.location.search).has('trace')) {
-      console.log(isLoading, tasks.length);
-    }
+    if (new URLSearchParams(window.location.search).has('trace')) console.log(isLoading, tasks.length);
   }, [isLoading, tasks.length]);
   const disabled = data.pending || data.status !== 'ready';
   async function save(value) {
@@ -65,4 +63,3 @@ export default function App() {
     </section>
   </main>;
 }
-

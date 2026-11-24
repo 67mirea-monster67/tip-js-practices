@@ -6,65 +6,71 @@ export function useTaskData({ api, filters }) {
   const [error, setError] = useState(null);
   const [mutationError, setMutationError] = useState(null);
   const [pending, setPending] = useState(false);
-  const [version, setVersion] = useState(0);
-  const mutation = useRef(null);
+  const [revision, setRevision] = useState(0);
+  const mounted = useRef(false);
+  const currentMutation = useRef(null);
   const { q, completed, priority, categoryId } = filters;
 
   useEffect(() => {
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+      currentMutation.current?.abort();
+      currentMutation.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
     const controller = new AbortController();
-    const { signal } = controller;
+    let active = true;
     setStatus('loading');
     setError(null);
-
     async function load() {
       try {
-        const result = await api.loadInitialData({ q, completed, priority, categoryId }, { signal });
-        if (signal.aborted) return;
+        const result = await api.loadInitialData(
+          { q, completed, priority, categoryId }, { signal: controller.signal });
+        if (!active || controller.signal.aborted) return;
         setSnapshot(result);
         setStatus('ready');
       } catch (failure) {
-        if (signal.aborted) return;
+        if (!active || controller.signal.aborted) return;
         setError(failure);
         setStatus('error');
       }
     }
-
     load();
-    return () => controller.abort();
-  }, [api, q, completed, priority, categoryId, version]);
-
-  useEffect(() => () => mutation.current?.abort(), []);
+    return () => { active = false; controller.abort(); };
+  }, [api, q, completed, priority, categoryId, revision]);
 
   function refresh() {
-    setVersion(previous => previous + 1);
+    if (mounted.current) setRevision(previous => previous + 1);
   }
-
   async function mutate(operation) {
-    if (mutation.current) return false;
+    if (!mounted.current || currentMutation.current) return false;
     const controller = new AbortController();
-    const { signal } = controller;
-    mutation.current = controller;
+    currentMutation.current = controller;
     setPending(true);
     setMutationError(null);
     try {
-      await operation({ signal });
-      if (signal.aborted) return false;
+      await operation({ signal: controller.signal });
+      if (!mounted.current || controller.signal.aborted) return false;
       refresh();
       return true;
     } catch (failure) {
-      if (!signal.aborted) setMutationError(failure);
+      if (mounted.current && !controller.signal.aborted) setMutationError(failure);
       return false;
     } finally {
-      mutation.current = null;
-      if (!signal.aborted) setPending(false);
+      if (currentMutation.current === controller) {
+        currentMutation.current = null;
+        if (mounted.current) setPending(false);
+      }
     }
   }
-
   return {
-    snapshot, tasks: snapshot.tasks, status, isLoading: status === 'loading',
-    error, mutationError, pending, refresh,
-    saveTask: (id, value) => mutate(options =>
-      id === null ? api.createTask(value, options) : api.updateTask(id, value, options)),
+    snapshot, tasks: snapshot.tasks, isLoading: status === 'loading',
+    status, error, mutationError, pending, refresh,
+    saveTask: (id, value) => mutate(options => id === null
+      ? api.createTask(value, options) : api.updateTask(id, value, options)),
     toggleTask: task => mutate(options => api.setTaskCompleted(task.id, !task.completed, options)),
     deleteTask: id => mutate(options => api.deleteTask(id, options)),
     resetData: () => mutate(options => api.resetDemoData(options)),
